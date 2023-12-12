@@ -78,10 +78,7 @@ target/
 .ipynb_checkpoints/
 
 # exclude data from source control by default
-data/*
-!data/*/.gitignore
-models/*
-!models/.gitignore
+#data/
 
 # Mac OS-specific storage files
 .DS_Store
@@ -144,6 +141,14 @@ GTAGS
 *.zip
 *.pkl
 *.npz
+
+# MLflow local demo registry #
+##############################
+mlruns/*
+!mlruns/0
+mlruns/0/*
+!mlruns/0/meta.yaml
+!mlruns/models/
 
 # Things specific to this project #
 ###################################

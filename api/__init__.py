@@ -67,6 +67,7 @@ def predict(model_name, input_file, accept="application/json", **options):
         **options -- Arbitrary keyword arguments from PredArgsSchema.
 
     Options:
+        version -- MLFLow model version to use for predictions.
         batch_size -- Number of samples per batch.
         steps -- Steps before prediction round is finished.
 
@@ -100,6 +101,7 @@ def train(model_name, input_file, accept="application/json", **options):
         **options -- Arbitrary keyword arguments from TrainArgsSchema.
 
     Options:
+        version -- MLFLow model version to use for predictions.
         epochs -- Number of epochs to train the model.
         initial_epoch -- Epoch at which to start training.
         steps_per_epoch -- Steps before declaring an epoch finished.
@@ -113,7 +115,7 @@ def train(model_name, input_file, accept="application/json", **options):
         HTTPException: Unexpected errors aim to return 50X
 
     Returns:
-        Dictionary containing run information.
+        Dictionary containing mlflow run information.
     """
     try:  # Call your AI model train() method
         logger.info("Using model %s for training", model_name)

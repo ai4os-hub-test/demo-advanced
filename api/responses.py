@@ -38,7 +38,7 @@ def json_response(result, **options):
             return result
         if isinstance(result, np.ndarray):
             return result.tolist()
-        return result.history
+        return dict(result)
     except Exception as err:  # TODO: Fix to specific exception
         logger.warning("Error converting result to json: %s", err)
         raise RuntimeError("Unsupported response type") from err

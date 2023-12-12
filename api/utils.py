@@ -5,21 +5,22 @@ import subprocess  # nosec B404
 import sys
 from pathlib import Path
 
+import mlflow
+
 from . import config
 
 logger = logging.getLogger(__name__)
 
 
 def ls_models():
-    """Utility to return a list of models available in `models` folder.
+    """Utility to return a list of models available in the MLFlow connected
+    models registry.
 
     Returns:
-        A list of folder names containing models.
+        A list of RegisteredModel from mlflow.
     """
-    models_path = Path(config.MODELS_URI)
-    logger.debug("Scanning at: %s", models_path)
-    dirscan = (x.name for x in models_path.glob("*") if x.is_dir())
-    return sorted(dirscan)
+    models = mlflow.search_registered_models()
+    return {x.name: x.description for x in models}
 
 
 def ls_datasets():
