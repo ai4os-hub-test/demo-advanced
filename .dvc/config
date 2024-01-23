@@ -1,4 +1,4 @@
 [core]
-    remote = deep-cloud
-['remote "deep-cloud"']
-    url = webdavs://data-deep.a.incd.pt/public.php/webdav
+    remote = ai4os-cloud
+['remote "ai4os-cloud"']
+    url = webdavs://share.services.ai4os.eu/public.php/webdav
