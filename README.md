@@ -24,14 +24,20 @@ As second step, you need to download your raw data and datasets. This project
 uses the Data Version Control [DVC](https://dvc.org/) library to organize and
 version all datasets and data.
 
-For a tutorial about how to use `dvc` you can use the guide at DVC:
-[Get Started: Data Management](https://dvc.org/doc/start/data-management).
-
 ```bash
 pip instal -r requirements-dev.txt
-dvc remote modify --local deep-cloud user {your-dvc-remote-user}
-dvc remote modify --local deep-cloud password {your-dvc-remote-password}
+dvc remote modify --local ai4os-cloud user 'c3HjBRQTY7tPdjA'
+dvc remote modify --local ai4os-cloud password ''
 dvc pull  # Download data from your dvc remote storage
+```
+
+For a tutorial about how to use `dvc` you can use the guide at DVC:
+[Get Started: Data Management](https://dvc.org/doc/start/data-management).
+You can configure your own remote storage by:
+
+```bash
+dvc remote modify --local {your-remote} user {your-dvc-remote-user}
+dvc remote modify --local {your-remote} password {your-dvc-remote-password}
 ```
 
 > If your provider does not provide webdav, check the alternatives offered at
